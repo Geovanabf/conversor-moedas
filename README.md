@@ -8,7 +8,7 @@ O projeto conta com barra de busca, categorias e listagem de produtos com preço
 ## 📸 Demonstração
 
 ### Página inicial
-![Home]("C:\Users\Geovana\Pictures\Screenshots\Captura de tela 2025-09-08 183554.png")
+![Home](./assets/home.png)
 
 ### Pesquisa por produto
 ![Busca](./assets/screenshot-search.png)
