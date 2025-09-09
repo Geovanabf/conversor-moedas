@@ -11,10 +11,10 @@ O projeto conta com barra de busca, categorias e listagem de produtos com preço
 ![Home](./assets/home.png)
 
 ### Pesquisa por produto
-![Busca](./assets/screenshot-search.png)
+![Busca](./assets/search.png)
 
 ### Filtro por categoria
-![Categorias](./assets/screenshot-category.png)
+![Categorias](./assets/categories.png)
 
 <br>
 
