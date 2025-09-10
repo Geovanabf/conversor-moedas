@@ -7,10 +7,10 @@ Uma aplicação simples de conversão de moedas, desenvolvida com HTML, CSS e Ja
 ## 📸 Demonstração
 
 ### Tela Inicial
-![Home](./assets/home.png)
+![Home](./assets/homepage.png)
 
 ### Exemplo da troca de moeda
-![Busca](./assets/search.png)
+![Busca](./assets/coin.png)
 
 <br>
 
