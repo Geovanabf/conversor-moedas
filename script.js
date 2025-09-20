@@ -1,153 +1,79 @@
-let produtos = [
-  {
-    id: 1,
-    nome: "iPhone 15 Pro",
-    categoria: "smartphones",
-    preco: 7999,
-    precoOriginal: 8999,
-    desconto: 11,
-    imagem:
-      "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400",
-    descricao: "Smartphone Apple com câmera avançada",
-  },
-  {
-    id: 2,
-    nome: "MacBook Air M2",
-    categoria: "laptops",
-    preco: 8999,
-    precoOriginal: 10999,
-    desconto: 18,
-    imagem:
-      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400",
-    descricao: "Notebook Apple ultrafino e potente",
-  },
-  {
-    id: 3,
-    nome: "AirPods Pro",
-    categoria: "headphones",
-    preco: 1899,
-    precoOriginal: 2299,
-    desconto: 17,
-    imagem:
-      "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=400",
-    descricao: "Fones sem fio com cancelamento de ruído",
-  },
-  {
-    id: 4,
-    nome: "Samsung Galaxy S24",
-    categoria: "smartphones",
-    preco: 5499,
-    precoOriginal: 6299,
-    desconto: 13,
-    imagem:
-      "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400",
-    descricao: "Smartphone Samsung com tela AMOLED",
-  },
-  {
-    id: 5,
-    nome: "Apple Watch Series 9",
-    categoria: "smartwatch",
-    preco: 3299,
-    precoOriginal: 3799,
-    desconto: 13,
-    imagem:
-      "https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?w=400",
-    descricao: "Relógio inteligente com monitoramento",
-  },
-  {
-    id: 6,
-    nome: "Teclado Mecânico",
-    categoria: "accessories",
-    preco: 499,
-    precoOriginal: null,
-    desconto: null,
-    imagem:
-      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400",
-    descricao: "Teclado mecânico RGB para gamers",
-  },
-  {
-    id: 7,
-    nome: "Sony WH-1000XM5",
-    categoria: "headphones",
-    preco: 2499,
-    precoOriginal: 2999,
-    desconto: 17,
-    imagem:
-      "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=400",
-    descricao: "Fone com cancelamento de ruído",
-  },
-  {
-    id: 8,
-    nome: "Dell XPS 13",
-    categoria: "laptops",
-    preco: 7999,
-    precoOriginal: null,
-    desconto: null,
-    imagem:
-      "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=400",
-    descricao: "Notebook Windows premium",
-  },
-];
-//array
+const convertButton = document.querySelector(".convert-button");
+const currencySelect = document.querySelector(".currency-select");
 
-let containerProdutos = document.querySelector(".produtos-container");
-let inputPesquisa = document.querySelector(".input-pesquisa");
-let textoInput = "";
-let todosBotoes = document.querySelectorAll(".botao-categorias");
-let categoria = "todos";
+function convertValues() {
+    const inputCurrencyValue = document.querySelector(".input-currency").value;
+    const currencyValueToConvert = document.querySelector(
+        ".currency-value-to-convert"
+    ); //valor real
+    const currencyValueConverted = document.querySelector(".currency-value"); //outras moedas
 
-function mostrarProdutos() {
-  let htmlProdutos = "";
+    console.log(currencySelect.value);
 
-  produtos.forEach((prd) => {
-    if (prd.nome.toLocaleLowerCase().includes(textoInput.toLocaleLowerCase())) {
-      // toLocaleLowerCase => fica minusculo
+    const dolarToday = 5.2;
+    const euroToday = 6.2;
+    const libraToday = 7.3;
+    const bitcoinToday = 617.561;
 
-      if (prd.categoria === categoria || categoria === "todos") {
-        // = => colocando um valor dentro da variavel
-        // == ou === => comparando valores
-        // || ou
-
-        htmlProdutos =
-          htmlProdutos +
-          `
-        <div class="cartao-produto">
-            <img src="${prd.imagem}" class="imagem-produto">
-            <div class="info-produto">
-                <h3 class="nome-produto">${prd.nome}</h3>
-                <p class="descricao-produto">${prd.descricao}</p>
-                <p class="preco-produto">R$ ${prd.preco}</p>
-                <button class="botao-produto">Mais detalhes...</button>            
-            </div>
-        </div>
-    
-        `;
-      }
+    if (currencySelect.value == "dolar") {
+        // se o select estiver selecionando o valor do dolar, entre aqui.
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+        }).format(inputCurrencyValue / dolarToday);
     }
-  });
-  //pegar item por item do array, e ai posso decicidr oq fdazer com cada um, podendo decidir oq fazer com cada um
+    if (currencySelect.value == "euro") {
+        // se o select estiver selecionando o valor do euro, entre aqui
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
+            style: "currency",
+            currency: "EUR",
+        }).format(inputCurrencyValue / euroToday);
+    }
+    if (currencySelect.value == "libra") {
+        // se o select estiver selecionando o valor da libra, entre aqui
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("en-GB", {
+            style: "currency",
+            currency: "GBP",
+        }).format(inputCurrencyValue / libraToday);
+    }
+    if (currencySelect.value == "bitcoin") {
+        // se o select estiver selecionando o valor do bitcoin, entre aqui
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "BTC",
+        }).format(inputCurrencyValue / bitcoinToday);
+    }
 
-  containerProdutos.innerHTML = htmlProdutos;
-  //coloca o q eu quiser no html
+    currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+    }).format(inputCurrencyValue);
 }
 
-mostrarProdutos();
+function changeCurrency() {
+    const currencyName = document.getElementById("currency-name");
+    const currencyImage = document.querySelector(".currency-img");
 
-function pesquisar() {
-  textoInput = inputPesquisa.value;
+    if (currencySelect.value == "dolar") {
+        currencyName.innerHTML = "Dólar americano";
+        currencyImage.src = "./assets/dolar.png";
+    }
 
-  mostrarProdutos();
+    if (currencySelect.value == "euro") {
+        currencyName.innerHTML = "Euro";
+        currencyImage.src = "./assets/euro.png";
+    }
+    if (currencySelect.value == "libra") {
+        currencyName.innerHTML = "Libra";
+        currencyImage.src = "./assets/libra.png";
+    }
+    if (currencySelect.value == "bitcoin") {
+        currencyName.innerHTML = "BitCoin";
+        currencyImage.src = "./assets/bitcoin.png";
+    }
+
+    convertValues()
 }
 
-inputPesquisa.addEventListener("input", pesquisar);
-
-todosBotoes.forEach((botao) => {
-  botao.addEventListener("click", function () {
-    categoria = botao.getAttribute("data-categoria");
-
-    todosBotoes.forEach(b => b.classList.remove("ativo"))
-    botao.classList.add("ativo")
-
-    mostrarProdutos();
-  });
-});
+currencySelect.addEventListener("change", changeCurrency);
+convertButton.addEventListener("click", convertValues);
