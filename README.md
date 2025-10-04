@@ -31,7 +31,7 @@ Permite converter valores entre diferentes moedas, como Real Brasileiro (BRL) e 
 ---
 
 ## 📂 Estrutura do projeto
-📦 currency-converter
+📦 currency-converter<br>
 ┣ 📂 assets # Imagens e ícone<br>
 ┣ 📜 index.html # Página principal<br>
 ┣ 📜 style.css # Estilos<br>
