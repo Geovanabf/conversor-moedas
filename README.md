@@ -32,8 +32,8 @@ Permite converter valores entre diferentes moedas, como Real Brasileiro (BRL) e 
 
 ## 📂 Estrutura do projeto
 📦 currency-converter
-┣ 📂 assets # Imagens e ícones
-┣ 📜 index.html # Página principal
-┣ 📜 style.css # Estilos
-┣ 📜 script.js # Lógica JS
+┣ 📂 assets # Imagens e ícone<br>
+┣ 📜 index.html # Página principal<br>
+┣ 📜 style.css # Estilos<br>
+┣ 📜 script.js # Lógica JS<br>
 ┗ 📜 README.md # Documentação do projeto
